@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela de Projetos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/list.css">
+</head>
+
+<body>
+  <div class="sidebar">
+    <h3>Menu</h3>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="colaborador.html">COLABORADOR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="projetos.html">PROJETOS</a>
+      </li>
+    </ul>
+    <br>
+    <button class="btn btn-outline-danger btn-sair">Sair</button>
+  </div>
+
+  <div class="container">
+    <h2 class="text-center"></h2>
+
+    <div class="card">
+      <div class="card-header">
+        CRIE - DELETE - ATUALIZE
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Tabela de Projetos</h5>
+        <p class="card-text">Aqui você pode criar, deletar e atualizar projetos.</p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>ID</th>
+              <th>Percentual Trabalhado</th>
+              <th>Status</th>
+              <th>Data de Criação</th>
+              <th>Descrição</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" class="form-control" name="nome[]" placeholder="Nome"></td>
+              <td><input type="text" class="form-control" name="id[]" placeholder="ID"></td>
+              <td><input type="text" class="form-control" name="percentual[]" placeholder="Percentual Trabalhado"></td>
+              <td><input type="text" class="form-control" name="status[]" placeholder="Status"></td>
+              <td><input type="text" class="form-control" name="datacriacao[]" placeholder="Data de Criação"></td>
+              <td><input type="text" class="form-control" name="descricao[]" placeholder="Descrição"></td>
+              <td><button type="button" class="btn btn-danger delete-row">Excluir</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button type="button" class="btn btn-success" id="add-row">Novo Projeto</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(255, 255, 255, 0.2);">
+      © 2023 Copyright:
+      <a class="text-dark" href="#">CARASLEGAIS.COM</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Adicionar nova linha
+      $('#add-row').click(function () {
+        var newRow = '<tr>' +
+          '<td><input type="text" class="form-control" name="nome[]" placeholder="Nome"></td>' +
+          '<td><input type="text" class="form-control" name="id[]" placeholder="ID"></td>' +
+          '<td><input type="text" class="form-control" name="percentual[]" placeholder="Percentual Trabalhado"></td>' +
+          '<td><input type="text" class="form-control" name="status[]" placeholder="Status"></td>' +
+          '<td><input type="text" class="form-control" name="datacriacao[]" placeholder="Data de Criação"></td>' +
+          '<td><input type="text" class="form-control" name="descricao[]" placeholder="Descrição"></td>' +
+          '<td><button type="button" class="btn btn-danger delete-row">Excluir</button></td>' +
+          '</tr>';
+
+        $('tbody').append(newRow);
+      });
+
+      // Excluir linha
+      $(document).on('click', '.delete-row', function () {
+        $(this).closest('tr').remove();
+      });
+    });
+  </script>
+</body>
+
+</html>
